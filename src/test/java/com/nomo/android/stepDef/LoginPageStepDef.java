@@ -1,5 +1,6 @@
 package com.nomo.android.stepDef;
 
+import com.nomo.android.pages.HomePage;
 import com.nomo.android.pages.LoginPage;
 import com.nomo.android.utils.ConfigUtil;
 import io.appium.java_client.AppiumDriver;
@@ -24,6 +25,7 @@ import java.net.URL;
 public class LoginPageStepDef {
     private AppiumDriver driver;
     private LoginPage loginPage;
+    private HomePage homePage;
     private DesiredCapabilities caps;
     private ConfigUtil config;
 
@@ -39,6 +41,7 @@ public class LoginPageStepDef {
 
         driver = new AppiumDriver(new URL("http://127.0.0.1:4725/"), caps);
         loginPage = new LoginPage(driver);
+        homePage = new HomePage(driver);
     }
 
 
@@ -69,12 +72,12 @@ public class LoginPageStepDef {
 
     @Given("I launch the mobile application")
     public void i_launch_the_mobile_application() {
-        Assert.assertTrue(loginPage.isAt());
+        Assert.assertTrue(homePage.isAt());
     }
 
     @And("I go to the login page")
     public void i_go_to_the_login_page() {
-        loginPage.goToLoginPage();
+        homePage.goToLoginPage();
     }
 
     @When("I enter {string} and {string} on the login screen")
@@ -89,6 +92,6 @@ public class LoginPageStepDef {
 
     @Then("I should see the {string}")
     public void i_should_see_the(String expectedOutcome) {
-        Assert.assertTrue(loginPage.isLoggedIn(expectedOutcome));
+        Assert.assertTrue(loginPage.isProperMessageDisplayed(expectedOutcome));
     }
 }
