@@ -71,7 +71,7 @@ The test scenarios are written using Cucumber, with Gherkin syntax for Behavior-
 The Cucumber reports will be generated after running the tests. You can find the reports in the following location:
 
 ```bash
-target/cucumber-reports/
+target/cucumber-reports.html
 ```
 
 This folder contains detailed reports of the test results in different formats, such as HTML.
