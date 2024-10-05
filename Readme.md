@@ -57,7 +57,6 @@ A step-by-step guide to getting the development environment running:
 
 ## Running the tests
 
-Explain how to run the automated tests for this system:
 
 - To run all the tests, use the command:
    ```bash
